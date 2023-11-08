@@ -42,18 +42,18 @@ function selectAbility(ability) {
             <div>
                 <v-btn variant="text" prepend-icon="mdi-arrow-left" @click="navigateTo('/agent')">Agent</v-btn>
             </div>
-            <h1>Agent - {{ agent?.data.displayName }}</h1>
+            <h1 class="text-center">Agent - {{ agent?.data.displayName }}</h1>
 
-            <v-row>
-                <v-col>
+            <v-row v-if="agent?.data" class="pa-4">
+                <v-col v-if="!$vuetify.display.sm" md="4">
                     <v-img :src="agent?.data.background" />
                 </v-col>
-                <v-col>
+                <v-col cols="12" md="4">
                     <div class="d-flex">
                         <v-img height="600" :src="agent?.data.fullPortraitV2" cover />
                     </div>
                 </v-col>
-                <v-col>
+                <v-col class="px-4" md="4">
                     <div class="d-flex flex-column">
                         <div> {{ agent?.data.role.displayName }}</div>
                         <div class="text-h2 font-weight-bold text-uppercase"> {{ agent?.data.displayName }}</div>
